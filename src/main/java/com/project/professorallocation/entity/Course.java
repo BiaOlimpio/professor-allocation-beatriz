@@ -1,13 +1,15 @@
 package com.project.professorallocation.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Course {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
+    @Enumerated(EnumType.STRING)
+    @Column(unique = true, nullable = false)
     private String name;
 
     public Long getId() {
