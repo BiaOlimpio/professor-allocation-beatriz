@@ -8,7 +8,6 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    @Enumerated(EnumType.STRING)
     @Column(unique = true, nullable = false)
     private String name;
 
