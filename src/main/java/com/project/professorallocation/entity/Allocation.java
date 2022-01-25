@@ -23,7 +23,7 @@ public class Allocation {
     @Column(nullable = false)
     private Date end;
     private Long courseId;
-    
+
     private Long professorId;
 
     public Long getId() {
