@@ -1,5 +1,11 @@
 package com.project.professorallocation.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+
 import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.util.Date;
@@ -16,10 +22,16 @@ public class Allocation {
     @Column(nullable = false)
     private DayOfWeek day;
 
+    @JsonFormat(pattern = "HH:mmZ")
+    @JsonSerialize(using = DateSerializer.class)
+    @JsonDeserialize(using = DateDeserializers.DateDeserializer.class)
     @Column(nullable = false)
     private Date start;
     @Temporal (TemporalType.TIME)
 
+    @JsonFormat(pattern = "HH:mmZ")
+    @JsonSerialize(using = DateSerializer.class)
+    @JsonDeserialize(using = DateDeserializers.DateDeserializer.class)
     @Column(nullable = false)
     private Date end;
 
